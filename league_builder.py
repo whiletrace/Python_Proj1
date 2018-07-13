@@ -20,9 +20,10 @@ class Player(object):
 # team class
 class team(object):
     """docstring for team"""
-    def __init__(self, arg):
+    def __init__(self, *args):
         super(team, self).__init__()
-        self.arg = arg
+        self.name = name 
+        self.players = {}
         pass
     # will have a name
     # will contain players
@@ -41,16 +42,18 @@ class Cordinator():
         # for check access player.Name 
 
         with open('soccer_players.csv', newline = '') as csvfile:
-            reader = csv.DictReader(csvfile)
-            players = [Player(**row) for row in reader]
-            for player in players:
-                print(player.Name)
+            fieldnames = ['name', 'height','experience','gaurdians']
+            reader = csv.DictReader(csvfile, fieldnames = fieldnames)
+            player_pool = [Player(**row) for row in reader][1:]
+        return player_pool
                 
+    
+    def teamcreate(self, player_pool):
+        # cordinator will create teams
+        #create three teams Raptors Dragons Sharks I believe the these too can be a set
+        # cordinator will distribute players to teams
         pass
-            # cordinator will create teams
-            #create three teams Raptors Dragons Sharks I believe the these too can be a set
-            # cordinator will distribute players to teams
-            # equal number of 
+            
 # Each team has the same number of players and the same number of experienced players 
 # Create a text file that has each team name with the players listed underneath the team name
 # the players printed should be formatted such as name, age height, experienced,Gaurdians
