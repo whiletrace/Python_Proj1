@@ -20,13 +20,15 @@ class Player(object):
 # team class
 class team(object):
     """docstring for team"""
-    def __init__(self, *args):
+    def __init__(self, players = None, *args):
         super(team, self).__init__()
-        self.name = name 
-        self.players = {}
+        # will have a name
+        # will contain players
+        self.players = players
+        for name in args:
+            setattr(self, 'name',args)
         pass
-    # will have a name
-    # will contain players
+    
     # each team will have equal number of players
     # each team will have equal number of experienced players
 
@@ -47,8 +49,8 @@ class Cordinator():
             player_pool = [Player(**row) for row in reader][1:]
         return player_pool
                 
-    
-    def teamcreate(self, player_pool):
+    @classmethod
+    def create_team (cls,self):
         # cordinator will create teams
         #create three teams Raptors Dragons Sharks I believe the these too can be a set
         # cordinator will distribute players to teams
@@ -60,4 +62,4 @@ class Cordinator():
 if __name__ == '__main__':
     
  John = Cordinator()
- John.playercreate()
+ John.playercreate
