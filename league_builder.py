@@ -1,5 +1,6 @@
 
 import csv
+
 # Optional
     # create classes and objects
     # player class 
@@ -14,7 +15,7 @@ class Cordinator:
     """docstring for cordinator"""
     def __init__(self, csv_file = None):
         self.players = self._read_file_return_players(csv_file)
-        
+        self.playersort = self._player_sort()
 
     # cordinator will create players from the soccer_players csv
     
@@ -30,20 +31,45 @@ class Cordinator:
         return player_pool
 
     
+                
+            
+    #test of access to players through self.players
+    
     def _player_sort(self):
-       print('Running self._make_teams()\n')
-       print(self.players)
+        sorted_list = sorted(self.players, key = lambda player: player.experience)
+        List_no = sorted_list[:9]
+        List_yes = sorted_list[9:]
+        Sharks = List_no[:3] + List_yes[:3]
+        Raptors = List_no[3:7] + List_yes[3:7]
+        Dragons = List_no[7:9] + List_yes[7:9]
+        teams =dict(Sharks = Sharks, Raptors= Raptors, Dragons= Dragons)
+        print(teams)
 
+
+        
+        
+
+
+        # gain ability to get value of attribute experience
+        # create a list that toggles between players with Yes and No values
+        # from this list create a tupple of three list
+        # each list should have six players
+        
+
+       
+       
 
 
 
 # player class
-class Player:
+class Player(Cordinator):
     """docstring for player"""
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
-            pass
+
+    
+        pass
 
 # team class
 class Team:
