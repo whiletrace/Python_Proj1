@@ -9,7 +9,7 @@ This is a small command_line application. The application reads from a csv file,
 
 In this iteration of this application the CSV file has to be formatted as such:
 * csv fields - name: `str`, height: `int`, experience: `str`, and gaurdians: `str`
-* please see [soccer_players.csv]https://github.com/whiletrace/Python_Proj1/blob/master/soccer_players.csv)  
+* please see [soccer_players.csv](https://github.com/whiletrace/Python_Proj1/blob/master/soccer_players.csv)  
 
 ### Output 
 * file: written to root dir `team.txt`
